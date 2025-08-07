@@ -10,8 +10,6 @@ import {
   AnimatePresence,
 } from 'framer-motion';
 import {
-  Children,
-  cloneElement,
   createContext,
   useContext,
   useEffect,
@@ -159,9 +157,7 @@ function DockItem({ children, className }: DockItemProps) {
       role='button'
       aria-haspopup='true'
     >
-      {Children.map(children, (child) =>
-        cloneElement(child as React.ReactElement, { width, isHovered })
-      )}
+      {children}
     </motion.div>
   );
 }

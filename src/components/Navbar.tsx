@@ -2,10 +2,7 @@ import {
     Activity,
     Component,
     HomeIcon,
-    Mail,
-    Package,
     ScrollText,
-    SunMoon,
   } from 'lucide-react';
   
   import { Dock, DockIcon, DockItem, DockLabel } from '@/components/ui/dock';

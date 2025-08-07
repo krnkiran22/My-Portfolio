@@ -12,57 +12,48 @@ gsap.registerPlugin(ScrollTrigger);
 const mockProjects = [
     {
         _id: "1",
-        title: "E-Commerce Platform",
-        description: "A full-stack e-commerce platform with React, Node.js, and MongoDB. Features include user authentication, payment integration, and admin dashboard.",
-        image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
-        tags: ["React", "Node.js", "MongoDB", "Express", "Stripe", "JWT", "Tailwind CSS"],
-        sourceUrl: "https://github.com/krnkiran22/ecommerce-platform",
-        liveUrl: "https://ecommerce-platform-demo.vercel.app"
+        title: "ResolveAI - Web3 Dispute Resolution",
+        description: "A sophisticated chat interface for Web3 dispute resolution on the Sepolia testnet, powered by Groq's Llama3-70B model. Features AI-driven transaction analysis, real-time blockchain data fetching, and a responsive UI with Tailwind CSS.",
+        image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80",
+        tags: ["React", "TypeScript", "Vite", "Tailwind CSS", "ethers.js", "Groq API", "Sepolia Testnet"],
+        sourceUrl: "https://github.com/krnkiran22/monad-blitz",
+        liveUrl: "https://monad-blitz-sjs6.vercel.app/"
     },
     {
         _id: "2",
-        title: "Task Management App",
-        description: "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
-        image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2339&q=80",
-        tags: ["React", "TypeScript", "Socket.io", "PostgreSQL", "Prisma", "NextAuth"],
-        sourceUrl: "https://github.com/krnkiran22/task-manager",
-        liveUrl: "https://task-manager-demo.vercel.app"
+        title: "LigerGames Chess - Web3 Multiplayer",
+        description: "A real-time multiplayer chess platform with ERC20 token (LGT) rewards on the Sepolia testnet. Integrates MetaMask for wallet connection, Ably for real-time gameplay, and Brewit SDK for escrow, with a responsive UI.",
+        image: "https://images.unsplash.com/photo-1528819622765-d6bcf132f793?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+        tags: ["React", "Tailwind CSS", "ethers.js", "Ably", "Brewit SDK", "Solidity", "Sepolia Testnet"],
+        sourceUrl: "https://github.com/krnkiran22/ChessGame-web3",
+        liveUrl: "https://monad-blitz-sjs6.vercel.app/"
     },
     {
         _id: "3",
-        title: "Weather Dashboard",
-        description: "A responsive weather dashboard with location-based forecasts, interactive maps, and weather alerts using OpenWeather API.",
-        image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
-        tags: ["Vue.js", "Vuex", "OpenWeather API", "Chart.js", "SCSS"],
-        sourceUrl: "https://github.com/krnkiran22/weather-dashboard",
-        liveUrl: "https://weather-dashboard-demo.vercel.app"
+        title: "SRM Trichy Medical College Website",
+        description: "A freelancing project for SRM Institute of Allied Health Sciences, featuring a modern, responsive website showcasing healthcare education programs, advanced facilities, and clinical training opportunities.",
+        image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+        tags: ["React", "Tailwind CSS", "JavaScript"],
+        sourceUrl: "https://github.com/krnkiran22/srm-website",
+        liveUrl: "https://srm-website-cyan.vercel.app/"
     },
     {
         _id: "4",
-        title: "Social Media Analytics",
-        description: "A comprehensive social media analytics platform with data visualization, sentiment analysis, and automated reporting features.",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2426&q=80",
-        tags: ["React", "D3.js", "Python", "Flask", "Redis", "Docker", "AWS"],
-        sourceUrl: "https://github.com/krnkiran22/social-analytics",
-        liveUrl: "https://social-analytics-demo.vercel.app"
+        title: "SecureDapp Website",
+        description: "A professional website for SecureDapp, showcasing blockchain-based solutions with a focus on security and scalability. Built with React and optimized for performance and user engagement.",
+        image: "https://images.unsplash.com/photo-1639322537228-f710d846310a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80",
+        tags: ["React", "TypeScript", "JavaScript", "CSS"],
+        sourceUrl: "https://github.com/krnkiran22/Securedapp_v2",
+        liveUrl: "https://securedapp.io"
     },
     {
         _id: "5",
-        title: "Cryptocurrency Tracker",
-        description: "A real-time cryptocurrency tracking application with portfolio management, price alerts, and market analysis tools.",
-        image: "https://images.unsplash.com/photo-1518546305927-5a555bb7020d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
-        tags: ["Next.js", "TypeScript", "CoinGecko API", "ChakraUI", "Vercel"],
-        sourceUrl: "https://github.com/krnkiran22/crypto-tracker",
-        liveUrl: "https://crypto-tracker-demo.vercel.app"
-    },
-    {
-        _id: "6",
-        title: "Blog CMS Platform",
-        description: "A content management system for blogs with markdown support, SEO optimization, and multi-author collaboration.",
-        image: "https://images.unsplash.com/photo-1486312338219-ce68e2c6b696?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80",
-        tags: ["Gatsby", "GraphQL", "Contentful", "Netlify", "React", "SCSS"],
-        sourceUrl: "https://github.com/krnkiran22/blog-cms",
-        liveUrl: "https://blog-cms-demo.netlify.app"
+        title: "DeckDelight Paintings",
+        description: "A visually appealing and responsive landing page for DeckDelight Paintings, designed to showcase artwork and services with a clean UI and smooth user experience.",
+        image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80",
+        tags: ["React", "JavaScript", "CSS"],
+        sourceUrl: "https://github.com/krnkiran22/samcontracts",
+        liveUrl: "https://www.deckdelightpainting.in/"
     }
 ];
 
@@ -328,7 +319,7 @@ export default function Projects() {
                     </h2>
                     <div className=" text-white flex justify-center py-4">
                 <GitHubCalendar
-                    username="krnkiran22"
+                    username="vishalmet"
                     blockSize={10}
                     blockMargin={3}
                     fontSize={16}

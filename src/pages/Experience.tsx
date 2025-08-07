@@ -8,79 +8,81 @@ import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState, useMemo } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
+import GryffindorsLogo from "@/assets/gryffindorslogo.webp";
+import SecureDappLogo from "@/assets/securedapp-logo-light.svg";
+import LigerGamesLogo from "@/assets/Baby-Liger_3.webp";
 gsap.registerPlugin(ScrollTrigger);
 
 // Mock data for experiences
 const mockExperiences = [
   {
-    _id: "1",
-    organization: "TechCorp Solutions",
-    logo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1926&q=80",
-    website: "https://techcorp-solutions.com",
-    tags: ["React", "Node.js", "TypeScript", "AWS", "MongoDB", "Docker"],
-    roles: [
-      {
-        role: "Senior Full Stack Developer",
-        startDate: "Jan 2023",
-        endDate: "Present",
-        description: "Leading development of enterprise-scale web applications using React and Node.js. Architecting microservices, implementing CI/CD pipelines, and mentoring junior developers. Reduced application load time by 40% through optimization techniques.",
-        website: "https://techcorp-solutions.com/senior-dev"
-      },
-      {
-        role: "Full Stack Developer",
-        startDate: "Jun 2021",
-        endDate: "Dec 2022",
-        description: "Developed and maintained multiple client projects using modern web technologies. Collaborated with cross-functional teams to deliver high-quality software solutions. Implemented automated testing suites increasing code coverage by 60%.",
-        website: "https://techcorp-solutions.com/full-stack"
-      }
-    ]
-  },
-  {
     _id: "2",
-    organization: "StartupX",
-    logo: "https://images.unsplash.com/photo-1549923746-c502d488b3ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80",
-    website: "https://startupx.com",
-    tags: ["Vue.js", "Python", "Django", "PostgreSQL", "Redis", "Kubernetes"],
+    organization: "Liger Games",
+    logo: LigerGamesLogo,
+    website: "https://ligergames.com",
+    tags: ["React.js", "Three.js", "Node.js", "Express.js", "Game Development", "UI/UX", "Microservices"],
     roles: [
       {
-        role: "Frontend Developer",
-        startDate: "Mar 2020",
-        endDate: "May 2021",
-        description: "Built responsive and interactive user interfaces for a fintech application. Collaborated closely with UI/UX designers to implement pixel-perfect designs. Optimized frontend performance achieving 95+ lighthouse scores.",
-        website: "https://startupx.com/frontend-role"
+        role: "Lead Developer",
+        startDate: "Jun 2023",
+        endDate: "Dec 2023",
+        description: "Led the development of gaming applications, overseeing frontend and backend architecture. Utilized React.js and Three.js for interactive UI/UX. Designed scalable microservices with Node.js and Express.js. Mentored junior developers and ensured project delivery aligned with performance and quality standards.",
+        website: "https://ligergames.com/game-development"
       }
     ]
   },
   {
     _id: "3",
-    organization: "Digital Agency Pro",
-    logo: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-    website: "https://digitalagencypro.com",
-    tags: ["JavaScript", "HTML5", "CSS3", "WordPress", "PHP", "MySQL"],
+    organization: "Gryffindors",
+    logo: GryffindorsLogo,
+    website: "https://www.gryffindors.in/",
+    tags: ["React.js", "Node.js", "Express.js", "MongoDB", "PostgreSQL", "RESTful APIs", "Full Stack"],
     roles: [
       {
-        role: "Junior Web Developer",
-        startDate: "Aug 2019",
-        endDate: "Feb 2020",
-        description: "Started my professional journey developing websites for small businesses. Learned modern web development practices, version control with Git, and agile methodologies. Successfully delivered 15+ client projects.",
-        website: "https://digitalagencypro.com/junior-dev"
+        role: "Software Developer",
+        startDate: "Aug 2022",
+        endDate: "May 2023",
+        description: "Built scalable web applications using React.js for the frontend and Node.js/Express.js for the backend. Integrated MongoDB and PostgreSQL for efficient data management. Developed RESTful APIs to support seamless functionality.",
+        website: "https://www.gryffindors.in/"
+      },
+      {
+        role: "Frontend Developer",
+        startDate: "Jan 2022",
+        endDate: "Jul 2022",
+        description: "Designed and implemented responsive UI components using React.js for web applications. Collaborated with cross-functional teams to enhance user experience. Ensured clean, maintainable code adhering to best practices.",
+        website: "https://gryffindors.tech/frontend"
+      }
+    ]
+  },
+  {
+    _id: "1",
+    organization: "SecureDapp",
+    logo: SecureDappLogo,
+    website: "https://securedapp.io",
+    tags: ["Solidity", "Web3.js", "React.js", "Node.js", "Express.js", "Blockchain", "Smart Contracts"],
+    roles: [
+      {
+        role: "Lead Developer",
+        startDate: "Jan 2024",
+        endDate: "Present",
+        description: "Spearheaded blockchain-based projects, developing smart contracts with Solidity and integrating Web3.js for decentralized applications. Built secure, scalable backends using Node.js and Express.js. Implemented real-time transaction monitoring systems with React.js frontends. Ensured compliance with security best practices and optimized application performance.",
+        website: "https://securedapp.io"
       }
     ]
   },
   {
     _id: "4",
-    organization: "Freelance Projects",
-    logo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
-    website: "https://my-portfolio.com",
-    tags: ["React", "Next.js", "Tailwind CSS", "Firebase", "Stripe", "Vercel"],
+    organization: "ZeitTech",
+    logo: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    website: "https://zeittech.in",
+    tags: ["React.js", "Tailwind CSS", "RESTful APIs", "Performance Optimization", "SEO", "Frontend"],
     roles: [
       {
-        role: "Freelance Developer",
-        startDate: "Jan 2019",
-        endDate: "Jul 2019",
-        description: "Worked on various freelance projects including e-commerce websites, portfolio sites, and small business applications. Gained experience in client communication, project management, and diverse technology stacks.",
-        website: "https://my-portfolio.com/freelance"
+        role: "Intern - Full Stack Developer",
+        startDate: "Jun 2021",
+        endDate: "Dec 2021",
+        description: "Developed a modern, responsive website using React.js and Tailwind CSS. Integrated RESTful APIs for dynamic content rendering. Optimized performance for faster load times and improved SEO. Ensured scalability and maintainability for future enhancements.",
+        website: "https://zeittech.in/internship"
       }
     ]
   }
@@ -172,10 +174,10 @@ const ExperienceCard = ({ experience, index }: { experience: any; index: number 
                   <FaBuilding className="h-4 w-4" />
                   <span className="text-sm">{experience.organization}</span>
                 </div>
-                <div className="flex items-center gap-2 text-white/40 text-sm mt-1">
+                {/* <div className="flex items-center gap-2 text-white/40 text-sm mt-1">
                   <FaCalendarAlt className="h-3 w-3" />
                   <span>{latestRole.startDate} - {latestRole.endDate}</span>
-                </div>
+                </div> */}
                 {/* Tags display */}
                 {experience.tags && experience.tags.length > 0 && (
                   <TagsDisplay tags={experience.tags} />
