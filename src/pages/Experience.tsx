@@ -8,9 +8,83 @@ import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState, useMemo } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { API_URL } from "@/constant";
 
 gsap.registerPlugin(ScrollTrigger);
+
+// Mock data for experiences
+const mockExperiences = [
+  {
+    _id: "1",
+    organization: "TechCorp Solutions",
+    logo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1926&q=80",
+    website: "https://techcorp-solutions.com",
+    tags: ["React", "Node.js", "TypeScript", "AWS", "MongoDB", "Docker"],
+    roles: [
+      {
+        role: "Senior Full Stack Developer",
+        startDate: "Jan 2023",
+        endDate: "Present",
+        description: "Leading development of enterprise-scale web applications using React and Node.js. Architecting microservices, implementing CI/CD pipelines, and mentoring junior developers. Reduced application load time by 40% through optimization techniques.",
+        website: "https://techcorp-solutions.com/senior-dev"
+      },
+      {
+        role: "Full Stack Developer",
+        startDate: "Jun 2021",
+        endDate: "Dec 2022",
+        description: "Developed and maintained multiple client projects using modern web technologies. Collaborated with cross-functional teams to deliver high-quality software solutions. Implemented automated testing suites increasing code coverage by 60%.",
+        website: "https://techcorp-solutions.com/full-stack"
+      }
+    ]
+  },
+  {
+    _id: "2",
+    organization: "StartupX",
+    logo: "https://images.unsplash.com/photo-1549923746-c502d488b3ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80",
+    website: "https://startupx.com",
+    tags: ["Vue.js", "Python", "Django", "PostgreSQL", "Redis", "Kubernetes"],
+    roles: [
+      {
+        role: "Frontend Developer",
+        startDate: "Mar 2020",
+        endDate: "May 2021",
+        description: "Built responsive and interactive user interfaces for a fintech application. Collaborated closely with UI/UX designers to implement pixel-perfect designs. Optimized frontend performance achieving 95+ lighthouse scores.",
+        website: "https://startupx.com/frontend-role"
+      }
+    ]
+  },
+  {
+    _id: "3",
+    organization: "Digital Agency Pro",
+    logo: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    website: "https://digitalagencypro.com",
+    tags: ["JavaScript", "HTML5", "CSS3", "WordPress", "PHP", "MySQL"],
+    roles: [
+      {
+        role: "Junior Web Developer",
+        startDate: "Aug 2019",
+        endDate: "Feb 2020",
+        description: "Started my professional journey developing websites for small businesses. Learned modern web development practices, version control with Git, and agile methodologies. Successfully delivered 15+ client projects.",
+        website: "https://digitalagencypro.com/junior-dev"
+      }
+    ]
+  },
+  {
+    _id: "4",
+    organization: "Freelance Projects",
+    logo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
+    website: "https://my-portfolio.com",
+    tags: ["React", "Next.js", "Tailwind CSS", "Firebase", "Stripe", "Vercel"],
+    roles: [
+      {
+        role: "Freelance Developer",
+        startDate: "Jan 2019",
+        endDate: "Jul 2019",
+        description: "Worked on various freelance projects including e-commerce websites, portfolio sites, and small business applications. Gained experience in client communication, project management, and diverse technology stacks.",
+        website: "https://my-portfolio.com/freelance"
+      }
+    ]
+  }
+];
 
 const ExperienceCard = ({ experience, index }: { experience: any; index: number }) => {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -221,22 +295,14 @@ export default function Experience() {
   const [activeCardIndex, setActiveCardIndex] = useState<number | null>(null);
   const [experiences, setExperiences] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch(`${API_URL}/experience`)
-      .then(res => {
-        if (!res.ok) throw new Error('Failed to fetch experience data');
-        return res.json();
-      })
-      .then(data => {
-        setExperiences(data);
-        setLoading(false);
-      })
-      .catch(err => {
-        setError(err.message);
-        setLoading(false);
-      });
+    // Simulate loading time
+    setLoading(true);
+    setTimeout(() => {
+      setExperiences(mockExperiences);
+      setLoading(false);
+    }, 500);
   }, []);
 
   useEffect(() => {
@@ -282,9 +348,6 @@ export default function Experience() {
 
   if (loading) {
     return <div className="text-white text-center py-20">Loading experience...</div>;
-  }
-  if (error) {
-    return <div className="text-red-500 text-center py-20">{error}</div>;
   }
 
   return (

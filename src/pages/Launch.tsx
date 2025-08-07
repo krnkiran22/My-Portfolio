@@ -287,7 +287,7 @@ export default function Launch() {
               <GoNorthStar />
             </span>
             <Button
-              onClick={() => window.open("https://drive.google.com/file/d/1ImIRJJyPUdqsO6bzh6qRMbS-B7dYqgKe/view?usp=sharing", "_blank")}
+              onClick={() => window.open("https://drive.google.com/file/d/1jIxYatYy-ipB5YZUgX-iOcBxW7iX-iRp/view?usp=sharing", "_blank")}
               className=" "
             >
               Resume
@@ -295,7 +295,7 @@ export default function Launch() {
             {stats && (
               <Button className="flex gap-2 ml-2 w-fit">
                 <a
-                  href={`https://github.com/vishalmet/vibecoded-portfolio`}
+                  href={`https://github.com/krnkiran22/My-Portfolio`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1 text-white/60 hover:text-white transition-colors"
@@ -305,7 +305,7 @@ export default function Launch() {
                 </a>
                 <span className="text-white/60">|</span>
                 <a
-                  href={`https://github.com/vishalmet/vibecoded-portfolio/network/members`}
+                  href={`https://github.com/krnkiran22/My-Portfolio/network/members`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1 text-white/60 hover:text-white transition-colors"

@@ -5,9 +5,66 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import GitHubCalendar from "react-github-calendar";
-import { API_URL } from "@/constant";
 
 gsap.registerPlugin(ScrollTrigger);
+
+// Mock data for projects
+const mockProjects = [
+    {
+        _id: "1",
+        title: "E-Commerce Platform",
+        description: "A full-stack e-commerce platform with React, Node.js, and MongoDB. Features include user authentication, payment integration, and admin dashboard.",
+        image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+        tags: ["React", "Node.js", "MongoDB", "Express", "Stripe", "JWT", "Tailwind CSS"],
+        sourceUrl: "https://github.com/krnkiran22/ecommerce-platform",
+        liveUrl: "https://ecommerce-platform-demo.vercel.app"
+    },
+    {
+        _id: "2",
+        title: "Task Management App",
+        description: "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
+        image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2339&q=80",
+        tags: ["React", "TypeScript", "Socket.io", "PostgreSQL", "Prisma", "NextAuth"],
+        sourceUrl: "https://github.com/krnkiran22/task-manager",
+        liveUrl: "https://task-manager-demo.vercel.app"
+    },
+    {
+        _id: "3",
+        title: "Weather Dashboard",
+        description: "A responsive weather dashboard with location-based forecasts, interactive maps, and weather alerts using OpenWeather API.",
+        image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+        tags: ["Vue.js", "Vuex", "OpenWeather API", "Chart.js", "SCSS"],
+        sourceUrl: "https://github.com/krnkiran22/weather-dashboard",
+        liveUrl: "https://weather-dashboard-demo.vercel.app"
+    },
+    {
+        _id: "4",
+        title: "Social Media Analytics",
+        description: "A comprehensive social media analytics platform with data visualization, sentiment analysis, and automated reporting features.",
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2426&q=80",
+        tags: ["React", "D3.js", "Python", "Flask", "Redis", "Docker", "AWS"],
+        sourceUrl: "https://github.com/krnkiran22/social-analytics",
+        liveUrl: "https://social-analytics-demo.vercel.app"
+    },
+    {
+        _id: "5",
+        title: "Cryptocurrency Tracker",
+        description: "A real-time cryptocurrency tracking application with portfolio management, price alerts, and market analysis tools.",
+        image: "https://images.unsplash.com/photo-1518546305927-5a555bb7020d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
+        tags: ["Next.js", "TypeScript", "CoinGecko API", "ChakraUI", "Vercel"],
+        sourceUrl: "https://github.com/krnkiran22/crypto-tracker",
+        liveUrl: "https://crypto-tracker-demo.vercel.app"
+    },
+    {
+        _id: "6",
+        title: "Blog CMS Platform",
+        description: "A content management system for blogs with markdown support, SEO optimization, and multi-author collaboration.",
+        image: "https://images.unsplash.com/photo-1486312338219-ce68e2c6b696?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80",
+        tags: ["Gatsby", "GraphQL", "Contentful", "Netlify", "React", "SCSS"],
+        sourceUrl: "https://github.com/krnkiran22/blog-cms",
+        liveUrl: "https://blog-cms-demo.netlify.app"
+    }
+];
 
 const ProjectCard = ({ project, expanded, onExpandToggle }: { project: any; index: number; expanded: boolean; onExpandToggle: () => void }) => {
     const cardRef = useRef<HTMLDivElement>(null);
@@ -145,23 +202,15 @@ export default function Projects() {
     const hiddenProjectsRef = useRef<HTMLDivElement>(null);
     const [projects, setProjects] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
     const [expandedTags, setExpandedTags] = useState<string[]>([]); // project._id array
 
     useEffect(() => {
-        fetch(`${API_URL}/projects`)
-            .then(res => {
-                if (!res.ok) throw new Error('Failed to fetch projects');
-                return res.json();
-            })
-            .then(data => {
-                setProjects(data);
-                setLoading(false);
-            })
-            .catch(err => {
-                setError(err.message);
-                setLoading(false);
-            });
+        // Simulate loading time
+        setLoading(true);
+        setTimeout(() => {
+            setProjects(mockProjects);
+            setLoading(false);
+        }, 500);
     }, []);
 
     useEffect(() => {
@@ -256,9 +305,6 @@ export default function Projects() {
     if (loading) {
         return <div className="text-white text-center py-20">Loading projects...</div>;
     }
-    if (error) {
-        return <div className="text-red-500 text-center py-20">{error}</div>;
-    }
 
     return (
         <div ref={containerRef} className="relative min-h-screen w-full bg-[#030303] py-10 overflow-hidden">
@@ -282,7 +328,7 @@ export default function Projects() {
                     </h2>
                     <div className=" text-white flex justify-center py-4">
                 <GitHubCalendar
-                    username="vishalmet"
+                    username="krnkiran22"
                     blockSize={10}
                     blockMargin={3}
                     fontSize={16}

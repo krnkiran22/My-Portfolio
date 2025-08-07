@@ -91,15 +91,8 @@ const About = () => {
                                 Full-stack developer (MERN) with a focus on <span className=" bricolage-font italic font-semibold">building user-friendly front-ends</span> using ReactJS (Vite), NextJS, and Tailwind CSS.
                             </p>
                             <p className="text-sm md:text-base text-white/60">
-                                Building DeFi solutions at{' '}
-                                <a
-                                    className="text-white/90 group-hover:text-amber-500/80 hover:underline hover:cursor-pointer"
-                                    href="https://caddy.finance"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    @caddyfinance
-                                </a>.
+                                
+                               
                             </p>
                         </CardContent>
                     </Card>
