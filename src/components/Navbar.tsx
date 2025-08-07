@@ -57,18 +57,18 @@ import {
       <div className=' fixed bottom-2 left-1/2 max-w-full -translate-x-1/2 z-50'>
         <Dock className='items-end pb-3  bg-gradient-to-r from-amber-500/10 via-black to-amber-500/10 backdrop-blur-[2px] border-2 border-white/[0.15] hover:cursor-pointer'>
           {data.map((item, idx) => (
-            <div className=""
-            onClick={(e) => {
-              e.preventDefault()
-              document.querySelector(item.href)?.scrollIntoView({ behavior: 'smooth' })
-            }}>
-            <DockItem
+            <div 
               key={idx}
-              className='aspect-square rounded-full bg-amber-500/10'
+              className="cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault()
+                document.querySelector(item.href)?.scrollIntoView({ behavior: 'smooth' })
+              }}
             >
-              <DockLabel>{item.title}</DockLabel>
-              <DockIcon>{item.icon}</DockIcon>
-            </DockItem>
+              <DockItem className='aspect-square rounded-full bg-amber-500/10'>
+                <DockLabel>{item.title}</DockLabel>
+                <DockIcon>{item.icon}</DockIcon>
+              </DockItem>
             </div>
           ))}
         </Dock>

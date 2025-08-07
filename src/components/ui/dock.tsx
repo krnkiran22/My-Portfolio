@@ -168,6 +168,9 @@ function DockLabel({ children, className, ...rest }: DockLabelProps) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+
+    if (!isHovered) return;
+    
     const unsubscribe = isHovered.on('change', (latest) => {
       setIsVisible(latest === 1);
     });
@@ -201,7 +204,7 @@ function DockIcon({ children, className, ...rest }: DockIconProps) {
   const restProps = rest as Record<string, unknown>;
   const width = restProps['width'] as MotionValue<number>;
 
-  const widthTransform = useTransform(width, (val) => val / 2);
+  const widthTransform = width ? useTransform(width, (val) => val / 2) : useMotionValue(24);
 
   return (
     <motion.div
