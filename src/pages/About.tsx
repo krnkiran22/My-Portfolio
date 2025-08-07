@@ -50,7 +50,7 @@ const About = () => {
                                 <div className="">
                                     <p>Hey, I'm Kiran.</p>
                                     <p className=" text-sm text-white/60">
-                                        Web3 Frontend Developer / MERN Stack Developer
+                                        Web3 Full Stack Developer / MERN Stack Developer
                                     </p>
                                 </div>
                                 <div className=" flex gap-3 items-center">
